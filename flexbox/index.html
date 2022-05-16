@@ -7,6 +7,77 @@
 	<title>Flexbox - CSS</title>
 </head>
 <body>
-	
+	<h1>Capitulo 3: Flexbox</h1>
+	<p>Los metodos de <a href="https://developer.mozilla.org/es/docs/Learn/CSS/CSS_layout/Floats">flotación</a> y <a href="https://developer.mozilla.org/es/docs/Learn/CSS/CSS_layout/Floats">posicionamiento</a> nos limitan para hacer una serie de cosas como:</p>
+	<ul>
+		<li>Centrar verticalmente un bloque de contenido dentro de su elemento padre.</li>
+		<li>Hacer que todos los elementos secundarios de un contenedor ocupen una cantidad igual del ancho/alto disponible aunque sobre espacio.</li>
+		<li>Hacer que multiples columnas de un diseño tengan la misma altura cuando tienen cantidades de contenido diferente.</li>
+	</ul>
+	<h2>Ejemplo basico</h2>
+	<p>Con la ayuda de un archivo html local veremos como funcionan los elementos flexibles.</p>
+	<p>Vemos que el html tiene una estructura adecuada: <em>header</em>y <em>section</em> que contiene a <em>article</em>.</p>
+	<h2>Aplicar flexbox</h2>
+	<p>Escribimos <span>display: flexbox;</span> en el elemento padre de los elementos que queremos que sean flexibles. Queremos poner como columnas a los articulos que son elementos hijos de section.</p>
+	<p>Vemos como esta propiedad simplifica todo para hacer columnas. El selector header se convierte en un contenedor flex y sus hijos son flexibles.</p>
+	<p>Esta propiedad nos da multiples columnas del mismo tamaño y altura dado los valores por defecto que adquieren los elementos flex que estan pensados para usarse facilmente.</p>
+	<p>Algo a tener en cuenta es el comportamiento: section va a comportarse como un bloque y los articulos que son los hijos, se comportan flexible. Si se quiere que los hijos sean en linea, al padre se le aplicaría <span>display: inline-flex;</span>.</p>
+	<h2>Modelo flexible</h2>
+	<p>Los elementos flexibles se mueven en dos ejes:</p>
+	<ul>
+		<li><strong>Eje principal (main axis)</strong>: Es la direccion en la que se muestran los elementos flexibles de filas o columnas, tiene un inicio (<em>main start</em>) y final (<em>main end</em>).</li>
+		<li><strong>Eje transversal (cross axis)</strong>: Es perpendicular a la dirección de los elementos flexibles, tiene inicio (<em>cross start</em>) y final (<em>cross end</em>).</li>
+		<li>Como establecimos antes, el elemento que tiene <span>display: flex;</span> se llama <em>flex conteiner</em> y sus elementos hijos se llaman <em>flex item</em>.</li>
+	</ul>
+	<h2>Columnas o Filas</h2>
+	<p>A los elementos hijos se les aplica por defecto la propiedad <span>flex-direction: row;</span> que determina que se muestren en fila en el eje principal (main axis). El valor <em>column</em> es el que se usa para que muestren como columna. El codigo de <a href="https://developer.mozilla.org/es/docs/Web/CSS/flex-direction">flex-direction</a> se escribe tambien en el contenedor flexible.</p> 
+	<p>Como son columnas vemos que los elementos aparecen uno abajo de otro, de arriba hacia abajo. En las filas los elementos aparecen uno al lado de otro, de izq a der.</p>
+	<p>Los valores <em>row-reverse</em> y <em>column-reverse</em> invierte la direción de los elementos.</p>
+	<h2>Delimitar</h2>
+	<p>Cuando tenemos una cantidad fija de ancho/alto, el contenido de los elementos hijos puede desbordar. Para practicarlo, bajamos el archivo html.</p>
+	<p>Para arreglarlo agregamos al contenedor flex <em>section</em>, <span>flex-warp: warp;</span> que indica si los elementos se pueden mover hacia otras lineas (valor <em>warp</em>) o quedarse fijos en una sola linea (valor <em>nowarp</em>). A los articulos le aumentamos su ancho con <span>flex: 200px;</span>.</p>
+	<p>El efecto conseguido es que al terminarse el ancho de ventana del navegador, los elementos pueden bajar hacia otra linea y ademas aumentando su ancho/espacio se logra un diseño más prolijo.</p>
+	<h2>Propieda abreviada flex-flow</h2>
+	<p>Controla en una misma declaración a <em>flex-direction</em> (crea filas o columnas) y <em>flex-warp</em> (elementos flex fijos en linea o que saltan hacia otras lineas).</p>
+	<p>Se escribe, <span>flex-flow: row warp;</span>.</p>
+	<h2>Dimensionamiento de elementos flexibles</h2>
+	<p>Volvamos al primer archivo de practica para crear la siguientes regla de css tomando el selector <em>articles</em> (elementos hijos): <span>flex: 1;</span>. Vemos que es un valor sin medida, sino, que es proporcional al espacio que hay despues de aplicar paddin y margin que agrandará estos elementos.</p>
+	<p>Determina la cantidad de espacio disponible que ocupará cada elemento, el valor 1 especifica que todos los elementos ocupan el mismo espacio.</p>
+	<p>Si aumentamos en 2 a un elemento con este selector: <span>article:nth-of-type(3)</span>, duplica el espacio tomado.</p>
+	<p>Si le agregamos otro valor con unidad de medida en px: <span>flex: 1 200px;</span> primero establece que cada los elementos tenga 200px de espacio y el resto se reparte por proporción.</p>
+	<p>El diseño en flex se ajustará al tamaño de ventana del navegador.</p>
+	<h3>Espacio restante en flexbox</h3>
+	<p>Tamaño del contenedor menos tamaño de todos los elementos flexibles juntos, ej: Si todos los items reciben el mismo factor de crecimiento, estos reciben la misma cantidad de espacio restante. Si tienen distintos valores, el espacio se distribuye de acuerdo a ello.</p>
+	<h2>Flex en forma abreviada y completa</h2>
+	<p>Utiliza los valores de tres propiedades:</p>
+	<ul>
+		<li><a href="https://developer.mozilla.org/es/docs/Web/CSS/flex-grow">flex-grow</a>: Determina el crecimineto de los elementos flex, es el valor sin unidades de medida como el 1. </li>
+		<li><a href="https://developer.mozilla.org/es/docs/Web/CSS/flex-shrink">flex-shrink</a>: Determina cuanto de la cantidad desbordada se le quita al tamaño de cada elemento para evitar que el contenedor desborde. Es un valor sin unidad de medida. Tiene efecto cuando el tamaño de los elementos supere al del contenedor.</li>
+		<li><a href="https://developer.mozilla.org/es/docs/Web/CSS/flex-basis">flex-basis</a>: Es el tamaño inicial de un elemento flexible, por ejemplo, lo aplicamos en <span>flex: 200px</span> en los elementos del primer ejemplo. Vemos que este valor tiene unidad de medida.</li>
+	</ul>
+	<p>Aplicación de los valores flex según su orden:</p>
+	<ul>
+		<li><span>flex: 1;</span> solo aplica flex-grow.</li>
+		<li><span>flex: 1 1;</span> aplica para flex grow y shrink.</li>
+		<li><span>flex: 1 1 200px;</span> aplica flex grow, shrink y basis.</li>
+		<li><span>flex: 1 200px</span> tiene efecto flex grow y basis</li>
+	</ul>
+	<p>Se recomienda usar las propiedades abreviadas de flex, a menos que tenga que anular una con propiedades por separadas.</p>
+	<h2>Alineación horizontal y vertical</h2>
+	<p>Con un archivo html estudiaremos nuevas propiedades para estos propositos, para convertir una barra de navegación normal en flexible.</p>
+	<p>En el siguiente codigo, el <em>div</em> sera el contenedor, ademas de tener las nuevas propiedades: <a href="https://developer.mozilla.org/es/docs/Web/CSS/align-items">align-items</a> y <a href="https://developer.mozilla.org/es/docs/Web/CSS/justify-content"></a>. Los <em>button</em> seran los elementos flexibles.</p>
+	<p><strong>align-item</strong>: Controla donde se ubican los elementos flexibles en el eje vertical con los siguientes valores:</p>
+	<ul>
+		<li><em>stretch</em>: Ensancha en eje vertical a los elementos flex. Si el elemento padre (contenedor flex) no tiene ancho fijo en el eje vertical, los elementos flex seran tan largos como el elemento que tenga más contenido. En este ejemplo tenemos un div contendor sin ancho.</li>
+		<!-- ancho al div normal (width) o flex: 200px a los elem y usar flex-flow: column al contenedor???. Con flex no hay forma de darle ancho al contendor, en cambio con un simple width si.
+		
+		flex: 200px y flex: column agranda verti y flex: 200px y flex: row horizont
+
+		stretch
+    	Las elementos flexibles son estirados de modo que el tamaño transversal de sus límites sea el mismo de la línea, manteniendo sus restricciones de anchura y altura.
+		-->
+		<li></li>
+		<li></li>
+	</ul>
 </body>
 </html>

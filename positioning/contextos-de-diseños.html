@@ -43,8 +43,8 @@
 	<h2>Bloque contenedor y position</h2>
 	<p>Para generar un <a href="https://developer.mozilla.org/en-US/docs/Web/CSS/Containing_block">bloque contenedor</a> debe haber un ancestro (más cercano) para el elemento <a href="https://developer.mozilla.org/es/docs/Web/CSS/position">position</a>, que lo está conteniendo y determina la posición en donde va a estar ubicado. Si un elemento no cumple para ser bloque contenedor, pasa al otro más cercano. Para determinar cual es el bloque contenedor del elemento posicionado debe cumplir con algunas caracteristicas:</p>
 	<ul>
-		<li>Si el elemento es static, relative o sticky; el bloque contenedor será el content área del antepasado si es un elemento en bloque, flex o grid. Un elemento en linea no es tenido en cuenta porque no es un bloque contenedor.</li>
-		<li>Si es absolute, el contenedor será el padding del antepasado mientras no tenga aplicado <span>position: static;</span> o sea, puede tener fixed, absolute, relative.</li>
+		<li>Si el elemento es static, relative o sticky; el bloque contenedor será el <em>content área</em> del antepasado si es un elemento en bloque, flex o grid. Un elemento en linea no es tenido en cuenta porque no es un bloque contenedor.</li>
+		<li>Si es absolute, el contenedor será el <em>padding</em> del antepasado mientras no tenga aplicado <span>position: static;</span> o sea, puede tener fixed, absolute, relative. Este truco lo usamos en el apartado de posicionamiento, para que el contenedor del elemento no sea el viewport y se extienda por toda la pantalla.</li>
 		<li>Si es fixed, el contenedor será el viewport (ventana grafica) del navegador.</li>
 		<li>Si es absolute o fixed, el contenedor puede ser el padding del ancestro si tiene las siguientes propiedades:</li>
 		<ol>

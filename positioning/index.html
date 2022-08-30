@@ -41,7 +41,7 @@
 	<p>Entonces para cambiar el orden del primer parrafo, agregamos un valor entero (positivo o negativo) a z-index para subirlo o bajarlo de capa. Si queremos ponerlo arriba de todo, vemos que solo hay por delante un elemento; entonces, le agregamos <span>z-index: 1;</span>.</p>
 
 	<h2>Posicionamiento fijo</h2>
-	<p>La propiedad <span>position: fixed;</span> sale del flujo normal y el elemento queda fijo en la ventana grafica (viewport) porque es su contenedor natural mientras su ancestro no tenga las propiedades <em>transform</em> o <em>perspective</em> con un valor distinto de none. Esto lo vimos en el apartado de contexto de diseño. El efecto es que el elemento se queda fijo al desplazarnos por la página.</p>
+	<p>La propiedad <span>position: fixed;</span> sale del flujo normal y el elemento flota fijamente por la ventana del navegador porque es su contenedor natural mientras su ancestro no tenga las propiedades <em>transform</em> o <em>perspective</em> con un valor distinto de none. Esto lo vimos en el apartado de contexto de diseño.</p>
 	<p>El elemento fijo se puede mover con las propiedades top, bottom, left, right como vimos antes. En el HTML de practica comentemos para desactivar el código del primer y segundo parrafo.</p>
 	<p>Para el body desactivamos la posicion relative y agregemos el siguiente codigo:</p>
 	<p>Su propiedad <span>margin-top: 0 auto</span> es para centrar horizontalmente el body.</p>
@@ -50,10 +50,10 @@
 	<p>Pero sucede que parte del contenido del primer parrafo se corta porque lo superpone nuestro elemento fijo. Lo solucionamos bajando un poco el primer parrafo con <em>margin-top</em> con una pseudoclase <a href="https://developer.mozilla.org/es/docs/Web/CSS/:nth-of-type">:nth-of-type()</a>, la p al principio es el elemento hermano seleccionado y el numero del parentesis es del primero ubicado.</p>
 
 	<h2>Posicionamiento adhesivo</h2>
-	<p>Con <span>position: sticky;</span> obtenemos un comportamiento hibrido entre una posición relative y fixed (sale del flujo y se fija en viewport). Flotará en un lugar hasta que nos desplazemos por la página y se quede fijo mientras navegamos sobreponiendo a los demás elementos. Su contenedor es el area de contenido del ancestro más cercano si es block, flex o grid (inline no se tiene en cuenta).</p>
+	<p>Con <span>position: sticky;</span> su comportamiento hace flotar en un lugar hasta que nos desplazemos por la página y se quede fijo mientras navegamos sobreponiendo a los demás elementos. Su contenedor es el area de contenido del ancestro más cercano si es block, flex o grid (inline no se tiene en cuenta). El elemento sticky solo se desplazará por todo alto o dimensión de su elemento padre (elemento de bloque, flex o grid más cercado), si es muy pequeño no se notará que se queda fijo. Con las propiedades top, bottom, left y right lo movemos hacia su lado contrario. Por ejemplo: si ponemos top 0 queda arriba de todo y si tiene más bajará.</p>
 
 	<h3>Ejemplo basico</h3>
-	<p>Se puede usar para hacer que la barra de navegación se desplace con la página hasta cierto punto y luego se mantenta en la parte superior. Usaremos otro documento de practica.</p>
+	<p>Se puede usar para hacer que la barra de navegación se desplace con la página y luego se mantenta en la parte superior. Usaremos otro documento de practica.</p>
 	<p>Le damos el siguiente código a .positioned, el top y left los mueve desde esta posición para que no se interponga en los otros</p>
 	<h3>Scrolling index</h3>
 	<p>Otro uso de position sticky es crear una página de indice de desplazamiento donde los diferentes encabezados se adhieren a la parte superior. Usamos otro HTML de practica.</p>

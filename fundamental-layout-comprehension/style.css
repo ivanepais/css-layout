@@ -1,3 +1,5 @@
+/* || GENERAL STYLES  */
+
 body {
     background-color: #fff;
     color: #333;
@@ -16,6 +18,8 @@ body {
     margin: 0 auto;
     max-width: 980px;
   }
+
+  /* || main grid */
   
   .grid {
     display: grid;
@@ -26,6 +30,8 @@ body {
     max-width: 980px;
   }
 
+  
+  /* || nav bar */
   
   nav {
     background-color: #000;
@@ -51,6 +57,8 @@ body {
     padding: .5em 1em;
   }
   
+  /* || second main grid */
+
   .photos {
     display: grid;
     grid-template-columns: 1fr 1fr;
@@ -59,6 +67,8 @@ body {
     margin: 0;
     padding: 0;
   }
+
+  /* || main float */
 
   .feature {
       float: left;

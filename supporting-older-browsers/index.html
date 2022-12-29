@@ -59,10 +59,96 @@
 
 	<p>Para solucionar esto nos falta agregar una pieza para la compatibilidad: debemos detectar si el navegador acepta CSS Grid mediante un query <em>@supports</em> que pertenece al grupo de reglas de CSS <a href="https://developer.mozilla.org/en-US/docs/Web/CSS/At-rule">At-rule</a>.</p>
 
+	<h3>De Grid hacia Float</h3>
+	<p>Vemos la transformación de un diseño moderno usando grid, hacia un diseño apto para navegadores antiguos que solo soporta flotantes.</p>
+	<code>
+		<!--
+			<div class="wrapper">
+			  <div class="item">Item One</div>
+			  <div class="item">Item Two</div>
+			  <div class="item">Item Three</div>
+			</div>
+
+
+			* {
+			  box-sizing: border-box;
+			}
+
+			.wrapper {
+			  background-color: rgb(79, 185, 227);
+			  padding: 10px;
+			  max-width: 400px;
+			  display: grid;
+			  grid-template-columns: 1fr 1fr 1fr;
+			}
+
+			.item {
+			  float: left;
+			  border-radius: 5px;
+			  background-color: rgb(207, 232, 220);
+			  padding: 1em;
+			}
+
+				To: 
+
+			* {
+			  box-sizing: border-box;
+			}
+
+			.wrapper {
+			  background-color: rgb(79, 185, 227);
+			  padding: 10px;
+			  max-width: 400px;
+			  display: grid;
+			  grid-template-columns: 1fr 1fr 1fr;
+			}
+
+			.item {
+			  float: left;
+			  border-radius: 5px;
+			  background-color: rgb(207, 232, 220);
+			  padding: 1em;
+			  width: 33.333%;
+			}
+		 -->
+	</code>	
+	<p>Los navegadores antiguos ignorarán grid y aceptarán los flotantes de la misma forma que los metodos modernos sobreescriben a los antiguos sin mayores inconvenientes.</p>
+
+
 	<h2>Feature queries</h2>
 	<p>Permite probar si el navegador admite algúna función/propiedad de CSS que agregemos como condición en la consulta y si es aceptada se ejecutará el código de CSS que está dentro a un elemento del sitio.</p>
 	<p>Primero usamos fallbacks para navegadores antiguos y después usamos este query para aplicar metodos modernos de diseño que admiten los navegadores modernos.</p>
 	<p>En el ejemplo, ponemos si el navegador admite Grid en la consulta para restablecer el ancho en auto de los items la cuadrícula.</p>
+	<code>
+		<!--
+			* {
+			  box-sizing: border-box;
+			}
+
+			.wrapper {
+			  background-color: rgb(79, 185, 227);
+			  padding: 10px;
+			  max-width: 400px;
+			  display: grid;
+			  grid-template-columns: 1fr 1fr 1fr;
+			}
+
+			.item {
+			  float: left;
+			  border-radius: 5px;
+			  background-color: rgb(207, 232, 220);
+			  padding: 1em;
+			  width: 33.333%;
+			}
+
+			@supports (display: grid) {
+			  .item {
+			    width: auto;
+			  }
+			}
+		 -->
+	</code>
+	<p>Ahora adaptamos grid para navegadores modernos usando un query.</p>
 
 	<h2>Flexbox en navegadores muy antiguos</h2>
 	<p>Si está en un proyecto que debe ser compatible con navegadores muy obsoletos como es el caso de Internet Explorer 10 que tiene un prefijo <em>-ms-</em> que los otros navegadores ignorarán, existe una <a href="https://css-tricks.com/old-flexbox-and-new-flexbox/">guía</a> de CSS-Tricks.</p>

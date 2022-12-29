@@ -20,12 +20,29 @@
 	<h2>Ejemplo basico</h2>
 
 		<p>Con la ayuda de un archivo html local veremos como funcionan los elementos flexibles.</p>
+		<code>
+			<!--
+				<h1></h1>
+				<section>			
+					<p></p>
+					<p></p>
+					<p></p>
+				</section>
+			 -->
+		</code>
 
 		<p>Vemos que el html tiene una estructura adecuada: <em>header</em>y <em>section</em> que contiene a <em>article</em>.</p>
 
 	<h2>Aplicar flexbox</h2>
 
 		<p>Escribimos <span>display: flex;</span> en el elemento padre de los elementos que queremos que sean flexibles. Queremos poner como columnas a los articulos que son elementos hijos de section.</p>
+		<code>
+			<!--
+				section {
+				  display: flex;
+				}
+			 -->
+		</code>	
 
 		<p>Vemos como esta propiedad simplifica todo para hacer columnas. El selector header se convierte en un contenedor flex y sus hijos son flexibles.</p>
 
@@ -46,6 +63,11 @@
 	<h2>Columnas o Filas</h2>
 
 		<p>A los elementos hijos se les aplica por defecto la propiedad <span>flex-direction: row;</span> que determina que se muestren en fila en el eje principal (main axis). El valor <em>column</em> es el que se usa para que muestren como columna. El codigo de <a href="https://developer.mozilla.org/es/docs/Web/CSS/flex-direction">flex-direction</a> se escribe tambien en el contenedor flexible.</p> 
+		<code>
+			<!--
+				flex-direction: column;
+			 -->
+		</code>		
 
 		<p>Como son columnas vemos que los elementos aparecen uno abajo de otro, de arriba hacia abajo. En las filas los elementos aparecen uno al lado de otro, de izq a der.</p>
 
@@ -54,26 +76,72 @@
 	<h2>Delimitar</h2>
 
 		<p>Cuando tenemos una cantidad fija de ancho/alto, el contenido de los elementos hijos puede desbordar. Para practicarlo, bajamos el archivo html.</p>
+		<code>
+			<!--
+				flex-wrap: wrap;
+			-->
+		</code>
 
 		<p>Para arreglarlo agregamos al contenedor flex <em>section</em>, <span>flex-wrap: wrap;</span> que indica si los elementos se pueden mover hacia otras lineas (valor <em>wrap</em>) o quedarse fijos en una sola linea (valor <em>nowrap</em>). A los articulos le aumentamos su ancho con <span>flex: 200px;</span>.</p>
+		<code>
+			<!--
+				flex: 200px;
+			 -->
+		</code>	
 
 		<p>El efecto conseguido es que al terminarse el ancho de ventana del navegador, los elementos pueden bajar hacia otra linea y ademas aumentando su ancho/espacio se logra un diseño más prolijo.</p>
 
 	<h2>Propieda abreviada flex-flow</h2>
 
 		<p>Controla en una misma declaración a <em>flex-direction</em> (crea filas o columnas) y <em>flex-wrap</em> (elementos flex fijos en linea o que saltan hacia otras lineas).</p>
+		<code>
+			<!--
+				flex-direction: row;
+				flex-wrap: wrap;
+			 -->
+		</code>		
 
 		<p>Se escribe, <span>flex-flow: row wrap;</span>. Se usa en el contenedor donde tambien está <em>display: flex;</em>.</p>
+		<code>
+			<!--
+				flex-flow: row wrap;
+			 -->
+		</code>	
 
 	<h2>Dimensionamiento de elementos flexibles</h2>
 
 		<p>Volvamos al primer archivo de practica para crear la siguientes regla de css tomando el selector <em>articles</em> (elementos hijos): <span>flex: 1;</span>. Vemos que es un valor sin medida, sino, que es proporcional al espacio que hay despues de aplicar padding y margin que agrandará estos elementos.</p>
+		<code>
+			<!--
+				article {
+				  flex: 1;
+				}
+			 -->
+		</code>	
 
 		<p>Determina la cantidad de espacio disponible que ocupará cada elemento, el valor 1 especifica que todos los elementos ocupan el mismo espacio, todo el espacio que pueda.</p>
 
 		<p>Si aumentamos en 2 a un elemento con este selector: <span>article:nth-of-type(3)</span>, duplica el espacio tomado.</p>
+		<code>
+			<!--
+				article:nth-of-type(3) {
+				  flex: 2;
+				}
+			 -->
+		</code>	
 
 		<p>Si le agregamos otro valor con unidad de medida en px: <span>flex: 1 200px;</span> primero establece que cada los elementos tenga 200px de espacio y el resto se reparte por proporción.</p>
+		<code>
+			<!--
+				article {
+				  flex: 1 200px;
+				}
+
+				article:nth-of-type(3) {
+				  flex: 2 200px;
+				}
+			 -->
+		</code>
 
 		<p>El diseño en flex se ajustará al tamaño de ventana del navegador.</p>
 
@@ -109,6 +177,15 @@
 		<p>Con un archivo html estudiaremos nuevas propiedades para estos propositos, para convertir una barra de navegación normal en flexible.</p>
 
 		<p>En el siguiente codigo, el <em>div</em> sera el contenedor, ademas de tener las nuevas propiedades: <a href="https://developer.mozilla.org/es/docs/Web/CSS/align-items">align-items</a> y <a href="https://developer.mozilla.org/es/docs/Web/CSS/justify-content"></a>. Los <em>button</em> seran los elementos flexibles.</p>
+		<code>
+			<!--
+				div {
+				  display: flex;
+				  align-items: center;
+				  justify-content: space-around;
+				}
+			 -->
+		</code>
 
 		<p>Las siguientes propiedades se usan en el contenedor y no en los elementos.</p>
 
@@ -121,6 +198,13 @@
 		</ul>
 
 		<p>Para anular el comportamiento de <em>align-items</em>, con una regla de selector de elemento, aplicamos <a href="https://developer.mozilla.org/es/docs/Web/CSS/align-self">align-self</a>. Por ejemplo: <span>button:first-child {align-self: flex-end;}</span>.</p>
+		<code>
+			<!--
+				button:first-child {
+				  align-self: flex-end;
+				}
+			 -->
+		</code>		
 
 		<p><strong>justify-content</strong>: Controla donde se ubican los items flex sobre el eje horizontal con los valores:</p>
 
@@ -139,6 +223,13 @@
 		<p>Podemos cambiar el orden entre ellos para no cambiarlo desde el código fuente.</p>
 
 		<p>Usamos un selector de elemento y le ponemos la propiedad <a href="https://developer.mozilla.org/es/docs/Web/CSS/order">order</a> de esta manera: <span>button:first-child {order: 1;}</span>. El primer botón pasara a la ultima ubicación.</p>
+		<code>
+			<!--
+				button:first-child {
+				  order: 1;
+				}
+			 -->
+		</code>		
 
 		<p>Valores para order:</p>
 
@@ -149,6 +240,13 @@
 			</ul>
 
 		<p>Los valores negativos son para que los elementos aparezcan antes del que tenga orden 0. Ej: Con <span>button:last-child {order: -1;}</span> hacemos que aparezca primero.</p>
+		<code>
+			<!--
+				button:last-child {
+				  order: -1;
+				}
+			 -->
+		</code>	
 
 	<h2>Cajas flexibles anidadas</h2>
 
@@ -157,5 +255,30 @@
 		<p>En el codigo tenemos un total de 3 contenedores flexibles con <span>display: flex;</span> <em>section</em> para todos los <em>articles</em>, su tercer articulo es otro contenedor flex el cual su primer div tambien es un contenedor flex.</p>
 
 		<p>La configuración más interesante se da en los botones con <span>flex: 1 auto;</span> ocuparán el espacio que puedan cuando reducimos el ancho de la ventana del navegador y cuando no puedan saltarán a la nueva línea.</p>
+		<code>
+			<!--
+				section {
+				  display: flex;
+				}
+
+				article {
+				  flex: 1 200px;
+				}
+
+				article:nth-of-type(3) {
+				  flex: 3 200px;
+				  display: flex;
+				  flex-flow: column;
+				}
+
+				button {
+				  flex: 1 auto;
+				  margin: 5px;
+				  font-size: 18px;
+				  line-height: 1.5;
+				}
+
+			 -->
+		</code>	
 </body>
 </html>

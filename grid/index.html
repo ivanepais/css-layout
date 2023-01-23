@@ -14,7 +14,7 @@
 
     <h2>Diseño en Grids</h2>
     <p>La compaginación (ordenar y mostrar el contenido web adecuadamente) en cuadrículas permite que los elementos no cambien de tamaño ni se muevan de su sitio manteniendo un diseño coherente.</p>
-    <p>Los conceptos en grid son: Filas (<em>row</em>), columnas (<em>columns</em>), y canales (<em>gutters</em>) que es el espacio entre ellas.</p>
+    <p>Los conceptos en grid son: Filas (<em>row</em>), columnas (<em>columns</em>), y espacios (<em>gutters</em>) que es el espacio entre ellas.</p>
 
     <h2>Crear una cuadrícula en CSS</h2>
     <p>Repasaremos los conceptos basicos para diseñar en <a href="https://developer.mozilla.org/es/docs/Web/CSS/CSS_Grid_Layout">Grid</a>.</p>
@@ -67,7 +67,7 @@
     </code> 
     
     <h3>Repetir cuadriculas</h3>
-    <p>La funcion <a href="https://developer.mozilla.org/en-US/docs/Web/CSS/repeat">repeat()</a> se usa para crear columnas o <a href="https://developer.mozilla.org/en-US/docs/Web/CSS/grid-template-rows">filas</a> dentro de estas propiedades de manera más eficiente. El primer valor será para la cantidad y el segundo valor será para el tamaño, separados por una coma. Hay más opciones de configuración en la referencia.</p>
+    <p>La funcion <a href="https://developer.mozilla.org/en-US/docs/Web/CSS/repeat">repeat()</a> se usa para crear columnas o <a href="https://developer.mozilla.org/en-US/docs/Web/CSS/g rid-template-rows">filas</a> dentro de estas propiedades de manera más eficiente. El primer valor será para la cantidad y el segundo valor será para el tamaño, separados por una coma. Hay más opciones de configuración en la referencia.</p>
     <code>
         <!--
             .container {
@@ -152,7 +152,7 @@
          -->
     </code>     
 
-    <p>Vemos que el primer elemento <em>.header</em> se coloca en la columna 1 hasta la 3ra (<em>grid-column</em>) y se extiende por toda las filas (<em>grid-row</em>) por es solo usamos el valor de inicio.</p>
+    <p>Vemos que el primer elemento <em>.header</em> se coloca en la columna 1 hasta la 3ra (<em>grid-column</em>) y se extiende por toda la fila (<em>grid-row</em>) por es solo usamos el valor de inicio.</p>
     <p>Los elementos <em>.article</em> y <em>.aside</em> tiene valor de inicio pero no tiene valor de final porque esta es su ubicación por defecto, por eso prescindimos del ultimo (si queremos); tanto en sus filas y columnas. Es otra de las caracteristicas de grid.</p>
     <p>En cambio, como pasa con <em>.header</em> y <em>.footer</em> que solo en sus filas no tiene valor final dado que así era su ubicación original en su fila.</p>
     <p>El valor -1 solo funciona con cuadrículas explícitas, es para elegir la fila o columna final y contar hacia atras desde el final con valores negativos (-1, -2, -3) con este ejemplo.</p>

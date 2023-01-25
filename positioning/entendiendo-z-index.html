@@ -17,15 +17,14 @@
 	<p>Un contexto de apilamiento es formado, en cualquier lugar del documento, por cualquier elemento que:</p>
 	<ul>
 		<li>Sea el elemento raíz (HTML).</li>
-		<li>Tenga <a href="https://developer.mozilla.org/es/docs/Web/CSS/position">position</a> (relative o absulute) y <a href="https://developer.mozilla.org/en-US/docs/Web/CSS/z-index">z-index</a> con un valor distinto de cero.</li>
-		<li>Un item <a href="https://developer.mozilla.org/es/docs/Web/CSS/flex">flex</a> con un valor z-index distinto de "auto", que tenga como padre a un elemento con <span>display: flex | inline-flex</span>.</li> 
+		<li>Tenga <a href="https://developer.mozilla.org/es/docs/Web/CSS/position">position</a> (relative o absulute, fixed o sticky) y <a href="https://developer.mozilla.org/en-US/docs/Web/CSS/z-index">z-index</a> con un valor distinto de cero.</li>
+		<li>Un item <a href="https://developer.mozilla.org/es/docs/Web/CSS/flex">flex</a> o Grid con un valor z-index distinto de "auto", que tenga como padre a un elemento con <span>display: flex | inline-flex</span> o display: grid | inline-block</li> 
 		<li>Elementos con un valor de <a href="https://developer.mozilla.org/es/docs/Web/CSS/opacity">opacity</a> menor de "1".</li>
 		<li>Elementos con un valor <a href="https://developer.mozilla.org/es/docs/Web/CSS/transform">transform</a> distinto de "none".</li>
 		<li>Elementos con un valor <a href="https://developer.mozilla.org/es/docs/Web/CSS/mix-blend-mode">mix-blend-mode</a> distinto de "normal".</li>
 		<li>Elementos con un valor <a href="https://developer.mozilla.org/es/docs/Web/CSS/filter">filter</a> distinto de "none".</li>
 		<li>Elementos con un valor <a href="https://developer.mozilla.org/es/docs/Web/CSS/perspective">perspective</a> distinto de "none".</li>
 		<li>Elementos con un valor <a href="">isolation</a> distinto de "isolate".</li>
-		<li>Elementos con <span>position: fixed</span>.</li>
 	</ul>
 
 	<h2>Orden y comportamiento de los elementos en los apilamientos</h2>

@@ -21,7 +21,7 @@
 
 	<h2>Diseño flexible antes del diseño responsivo</h2>
 	<p>Se desarrollaron varios enfoques para tratar de resolver las desventajas del <em>liquid layout</em> o del <em>ancho fijo</em> para los sitios web. En 2004, Cameron Adams escribió una publicación titulada <a href="https://www.themaninblue.com/writing/perspective/2004/09/21/">Resolution dependent layout</a>, describía un método para crear un diseño que pudiera adaptarse a diferentes anchos de pantalla. Requería el uso de <em>JavaScript</em> para detectar la resolución de la pantalla y cargar el CSS correcto.</p>
-	<p>Zoe Mickley Gillenwater fue fundamental en <a href="https://zomigi.com/blog/voices-that-matter-slides-available/">su trabajo</a> para describir formalizar diferentes formas en que se pueden crear sitios flexibles intentando encontrar un termino medio entre llenar la pantalla o tener un tamaño completamente fijo.</p>
+	<p>Zoe Mickley Gillenwater fue fundamental en <a href="https://zomigi.com/blog/voices-that-matter-slides-available/">su trabajo</a> para describir, formalizar diferentes formas en que se pueden crear sitios flexibles intentando encontrar un termino medio entre llenar la pantalla o tener un tamaño completamente fijo.</p>
 
 	<h2>Diseño Responsivo</h2>
 	<p>El termino fue <a href="https://alistapart.com/article/responsive-web-design/">acuñado por Ethan Marcotte</a> y describió el uso de tres técnicas en combinación.</p>
@@ -31,11 +31,11 @@
 		<li>Por último la clave fue <a href="https://developer.mozilla.org/es/docs/Web/CSS/Media_Queries">media queries</a>, establecen el cambio de diseño que Cameron Adams había explorado usando JavaScript, pero con CSS. En lugar de tener un diseño para todos los tamaños de pantalla, podríamos adaptar uso solo. La navegación lateral se puede reposicionar para una pantalla más pequeña o se puede mostrar una navegación alternativa.</li>
 	</ol>
 
-	<p>El diseño web responsivo no es una tecnologia aparte, es un termino que se usa para describir  el uso de un conjunto de mejores practicas para el diseño adaptativo a los distintos dispositivos en los que se va a mostrar el contenido. Esta forma de trabajar se ha convertido en predeterminada a la hora de diseñar un sitio. Los metodos de diseño de CSS modernos son intrinsecamente responsivos y hay herramientas intregradas en la plataforma web para facilitar el diseño.</p>
+	<p>El diseño web responsivo no es una tecnologia aparte, es un termino que se usa para describir  el uso de un conjunto de buenas practicas para el diseño adaptativo a los distintos dispositivos en los que se va a mostrar el contenido. Esta forma de trabajar se ha convertido en predeterminada a la hora de diseñar un sitio. Los metodos de diseño de CSS modernos son intrinsecamente responsivos y hay herramientas intregradas en la plataforma web para facilitar el diseño.</p>
 
 	<p>A partir de acá veremos diferentes funciones de la plataforma web para crear un sitio responsivo.</p>
 
-	<h2>Media Queris</h2>
+	<h2>Media Query</h2>
 	<p>El diseño responsivo pudo surgir debido a los <a href="https://developer.mozilla.org/es/docs/Web/CSS/Media_Queries">media queries</a>, en 2009 se convirtio en Candidata a Recomendación y se la considero lista para su implementación en los navegadores. Los <em>media queries</em> nos permiten ejecutar una series de pruebas/test (por ejemplo, si la pantalla del usuario es mayor que un ancho determinada) se aplicará CSS de forma selectiva para mostrar un diseño adecuado al dispositivo que tiene el usuario.</p>
 	<p>En este ejemplo, el siguiente <em>media query</em> prueba si la página web se muestra como medios de contenido (y no un documento para imprimir), y además si la ventana del navegador tiene como minimo 800px de ancho. El CSS del <em>.container</em> solo se aplicará si estás dos cosas son ciertas.</p>
 	<p><span>@media screen and (min-width: 800px) {.container {margin: 1em 2em;} }</span>.</p>
